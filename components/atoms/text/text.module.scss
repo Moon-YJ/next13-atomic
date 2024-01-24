@@ -26,4 +26,23 @@
 		color: var(--point);
 		font-size: 20vw;
 	}
+	&.button {
+		display: inline-block;
+		padding: 5px 10px;
+		color: var(--text);
+		border: 1px solid var(--text);
+		background-color: transparent;
+		cursor: pointer;
+		opacity: 0.5;
+		&:hover {
+			color: var(--point);
+			border: 1px solid var(--point);
+			opacity: 1;
+		}
+		&.on {
+			color: var(--point);
+			border: 1px solid var(--point);
+			opacity: 1;
+		}
+	}
 }
