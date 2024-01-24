@@ -1,16 +1,23 @@
 .card {
 	width: 200px;
-
+	height: 35vh;
+	margin-bottom: 200px;
+	opacity: 0.5;
+	cursor: pointer;
+	transition: 0.5s;
+	&:hover {
+		opacity: 1;
+	}
 	p {
-		width: 100%;
-		padding: 20px;
+		padding: 10px 0px;
+		margin: 20px 0px;
+		border-top: 1px solid rgba(var(--textCode), 0.7);
 	}
 }
 .card.horizontal {
+	display: flex;
 	width: 40%;
 	height: 200px;
-	display: flex;
-
 	div {
 		width: 50%;
 		height: 100%;
