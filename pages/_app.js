@@ -3,7 +3,7 @@ import '@/styles/globals.scss';
 import '@/styles/theme.scss';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { GlobalProvider } from '@/hooks/useGlobalContext';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools/build/lib/devtools';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 axios.defaults.baseURL = 'https://www.themealdb.com/api/json/v1/1';
 
