@@ -7,7 +7,7 @@ export default function Card({ imgSrc, txt, url, styleType, className }) {
 	return (
 		<article className={clsx(styles.card, className, styles[styleType])}>
 			<Pic imgSrc={imgSrc} url={url} />
-			{txt && <Text>{txt}</Text>}
+			{txt && <Text url={url}>{txt}</Text>}
 		</article>
 	);
 }

@@ -24,7 +24,15 @@ export default function FindRecipe({ categories }) {
 			<h1>{Selected}</h1>
 			{isSuccess &&
 				dataByCategory.map(data => {
-					return <Card key={data.idMeal} imgSrc={data.strMealThumb} txt={data.strMeal} className={clsx(styles.foodItems)} />;
+					return (
+						<Card
+							key={data.idMeal}
+							imgSrc={data.strMealThumb}
+							txt={data.strMeal}
+							className={clsx(styles.foodItems)}
+							url={`/find-recipe/${data.idMeal}`}
+						/>
+					);
 				})}
 		</section>
 	);
