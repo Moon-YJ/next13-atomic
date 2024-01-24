@@ -1,6 +1,10 @@
 import clsx from 'clsx';
-import styles from './myFavorite.module.scss';
+import styles from './my-favorite.module.scss';
 
 export default function MyFavorite() {
-	return <div className={clsx(styles.myFavorite)}></div>;
+	return (
+		<section className={clsx(styles.myFavorite)}>
+			<h1>My-favorite</h1>
+		</section>
+	);
 }
