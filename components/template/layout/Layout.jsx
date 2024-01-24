@@ -35,7 +35,9 @@ export default function Layout({ children }) {
 					</div>
 				</div>
 				{/* router 변경할때마다 모션을 적용할 박스 요소 */}
+				{/* 패널이 안보이다가 왼쪽에서 오른쪽으로 늘어나는 모션 컴포넌트 */}
 				<motion.div className='in' initial={{ scaleX: 0 }} animate={{ scaleX: 0 }} exit={{ scaleX: 1 }} transition={{ duration: 0.5 }}></motion.div>
+				{/* 패널이 보이다가 오른쪽으로 사라지는 모션 컴포넌트 */}
 				<motion.div className='out' initial={{ scaleX: 1 }} animate={{ scaleX: 0 }} exit={{ scaleX: 0 }} transition={{ duration: 0.5 }}></motion.div>
 
 				{/* scaleY 모션 */}
