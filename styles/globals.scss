@@ -1,3 +1,9 @@
+:root {
+	--text: #fff;
+	--textCode: 255, 255, 255;
+	--point: orangered;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -11,4 +17,5 @@ li {
 a {
 	text-decoration: none;
 	outline: 0;
+	color: inherit;
 }

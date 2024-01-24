@@ -1,2 +1,12 @@
 .breadcrumb {
+	display: flex;
+	justify-content: flex-end;
+	gap: 5px;
+	width: 80vw;
+	margin: 0 auto;
+	opacity: 0.8;
+	span {
+		transform: scale(0.7);
+		opacity: 0.5;
+	}
 }

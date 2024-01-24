@@ -4,10 +4,10 @@
 	padding: 15vh 0 10vh;
 	background-color: #111;
 	overflow: hidden;
+	color: var(--text);
 	// header를 제외한 컨텐츠 영역
 	.content {
 		height: 100%;
-		color: #ccc;
 		overflow-y: auto;
 		// 그안쪽에 커스텀 스크롤바 설정
 		&::-webkit-scrollbar {
@@ -15,7 +15,7 @@
 		}
 		&::-webkit-scrollbar-thumb {
 			border-radius: 2px;
-			background: hotpink;
+			background: var(--point);
 		}
 		// 메인페이지 전용 root tag (main page)
 		> main {
@@ -24,7 +24,13 @@
 		// 각 페이지별 root tag (sub page)
 		> section {
 			width: 80vw;
+			padding-top: 60px;
 			margin: 0px auto;
+			h1 {
+				font-size: 2rem;
+				font-weight: 400;
+				font-family: var(--font-nanum);
+			}
 		}
 	}
 }
