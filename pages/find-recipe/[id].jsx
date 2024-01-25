@@ -6,6 +6,9 @@ import styles from './detail.module.scss';
 import { useEffect, useState } from 'react';
 import { TableY } from '@/components/atoms/table/Table';
 import List from '@/components/atoms/list/List';
+import Text from '@/components/atoms/text/Text';
+import { IoMdHeartEmpty } from 'react-icons/io';
+import { IoMdHeart } from 'react-icons/io';
 
 export default function Detail() {
 	const router = useRouter();
@@ -13,6 +16,29 @@ export default function Detail() {
 	const { data, isSuccess } = useRecipeById(id);
 	const [TableData, setTableData] = useState([]);
 	const [ListData, setListData] = useState([]);
+	// 해당 값의 유무에 따라 즐겨찾기 있는지 확인
+	const [Saved, setSaved] = useState(false);
+
+	// 즐겨찾기 버튼 토글시 로컬저장소에 params로 들어온 레시피 아이디값을 저장해주는 함수
+	const handleAdd = () => {
+		const savedRecipe = JSON.parse(localStorage.getItem('favorite')) || [];
+		if (!Saved) {
+			savedRecipe.push(data.idMeal);
+			localStorage.setItem('favorite', JSON.stringify(savedRecipe));
+			setSaved(true);
+		} else {
+			// Array.splice(삭제할 배열의 위치 순번, 삭제할 개수)
+			savedRecipe.splice(savedRecipe.indexOf(data.idMeal), 1);
+			localStorage.setItem('favorite', JSON.stringify(savedRecipe));
+			setSaved(false);
+		}
+	};
+
+	// 사용자 이벤트가 아닌 해당 페이지컴포넌트가 마운트시 로컬저장소의 값을 비교해서 즐겨찾기버튼 상태 변경
+	useEffect(() => {
+		const savedRecipe = JSON.parse(localStorage.getItem('favorite')) || [];
+		savedRecipe.includes(id) ? setSaved(true) : setSaved(false);
+	}, [id]);
 
 	useEffect(() => {
 		if (data) {
@@ -44,7 +70,12 @@ export default function Detail() {
 		<section className={clsx(styles.detail)}>
 			{isSuccess && (
 				<>
-					<h1>{data.strMeal}</h1>
+					<div className={clsx(styles.top)}>
+						<h1>{data.strMeal}</h1>
+						<Text styleType='button' onClick={handleAdd}>
+							{Saved ? <IoMdHeart /> : <IoMdHeartEmpty />}
+						</Text>
+					</div>
 					<div className={clsx(styles.picFrame)}>
 						<Pic imgSrc={data.strMealThumb} />
 					</div>

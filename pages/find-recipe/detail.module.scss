@@ -2,9 +2,24 @@
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
-	h1 {
-		&:hover {
-			color: var(--text);
+	.top {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		h1 {
+			width: auto !important;
+			&:hover {
+				color: var(--text);
+			}
+		}
+		p {
+			border: none;
+			font-size: 2rem;
+			&:hover {
+				border: none;
+			}
 		}
 	}
 	.picFrame {
