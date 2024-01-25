@@ -4,10 +4,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { HashLoader } from 'react-spinners';
 import { useState } from 'react';
+//import { useThemeColor } from '@/hooks/useThemeColor';
+
 //npm i react-spinners
 
 export default function Pic({ imgSrc, imgTxt, url }) {
 	const [IsLoaded, setIsLoaded] = useState(false);
+	//const {point} = useThemeColor();
 
 	return (
 		<div className={clsx(styles.pic, imgTxt && styles.picTxt)}>
@@ -25,7 +28,8 @@ export default function Pic({ imgSrc, imgTxt, url }) {
 			{url && <Link href={url}></Link>}
 			<HashLoader
 				size={50}
-				color={'orange'}
+				color='var(--point)'
+				//color={point}
 				loading={!IsLoaded}
 				cssOverride={{
 					position: 'absolute',

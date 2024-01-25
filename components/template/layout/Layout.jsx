@@ -36,6 +36,7 @@ export default function Layout({ children }) {
 						{router.asPath !== '/' && <Breadcrumb />}
 						{children}
 					</div>
+					<Footer />
 					{/* router 변경할때마다 모션을 적용할 박스 요소 */}
 					{/* 패널이 안보이다가 왼쪽에서 오른쪽으로 늘어나는 모션 컴포넌트 */}
 					<motion.div className='in' initial={{ scaleX: 0 }} animate={{ scaleX: 0 }} exit={{ scaleX: 1 }} transition={{ duration: 0.5 }}></motion.div>
@@ -50,7 +51,6 @@ export default function Layout({ children }) {
 					{/* scaleY 모션 */}
 					{/* <motion.div className='in' initial={{ scaleY: 0 }} animate={{ scaleY: 0 }} exit={{ scaleY: 1 }} transition={{ duration: 0.5 }}></motion.div>
 					<motion.div className='out' initial={{ scaleY: 1 }} animate={{ scaleY: 0 }} exit={{ scaleY: 0 }} transition={{ duration: 0.5 }}></motion.div> */}
-					<Footer />
 				</div>
 			</motion.div>
 		</AnimatePresence>
