@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useRecipeByCategory } from '@/hooks/useRecipe';
 import Card from '@/components/molecules/card/Card';
+import SearchBar from '@/components/molecules/searchBar/SearchBar';
 
 export default function FindRecipe({ categories }) {
 	console.log(categories);
@@ -20,7 +21,10 @@ export default function FindRecipe({ categories }) {
 
 	return (
 		<section className={clsx(styles.findRecipe)}>
-			<Category dataArr={Names} selectedEl={Selected} onClick={handleClick} className={clsx(styles.category)} />
+			<div className={clsx(styles.controller)}>
+				<Category dataArr={Names} selectedEl={Selected} onClick={handleClick} className={clsx(styles.category)} />
+				<SearchBar placeholder='Search Recipe' className={clsx(styles.search)} />
+			</div>
 			<h1>{Selected}</h1>
 			{isSuccess &&
 				dataByCategory.map(data => {

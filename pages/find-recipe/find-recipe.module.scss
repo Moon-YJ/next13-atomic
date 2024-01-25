@@ -3,16 +3,39 @@
 	flex-wrap: wrap;
 	justify-content: space-between;
 	width: 100%;
+	.controller {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		.category {
+			margin: 40px 0 20px;
+		}
+		.search {
+			position: relative;
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			align-content: center;
+			input {
+				width: 80px;
+			}
+			button {
+				position: absolute;
+				top: 50%;
+				right: 0;
+				font-size: 1rem;
+				transform: translateY(-50%);
+			}
+		}
+	}
 	> h1 {
 		width: 100%;
 	}
 	> h2 {
 		width: 100%;
 		margin-bottom: 50px;
-	}
-	.category {
-		width: 100%;
-		margin: 40px 0 20px;
 	}
 	.foodItems {
 		width: 30%;
