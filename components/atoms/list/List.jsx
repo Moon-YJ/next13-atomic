@@ -16,7 +16,7 @@ export default function List({ tagName = 'ul', data, divider = ':', className, u
 				'li',
 				{
 					key: idx,
-					className: clsx(router.pathname === url[idx] && styles.on)
+					className: url && clsx(router.pathname === url[idx] && styles.on)
 				},
 				// url값이 전달되는것뿐만 아닌 현재활성화 라우터이름과 url값이 달라야지만 링크 설정
 				//현재 페이지 메뉴는 굳이 클릭할 필요가 없기 때문에 불필요한 prefetching 및 XHR객체(XMLHTTPRequest) 요청금지

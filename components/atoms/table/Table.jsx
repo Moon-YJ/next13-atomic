@@ -38,7 +38,7 @@ export function TableY({ data, title, className, isCount = false, reverse = fals
 }
 export function TableX({ data, title, className, reverse = false }) {
 	data = reverse ? [...data].reverse() : [...data];
-	const keys = Object.keys(data[0]); //['name','age']
+	const keys = Object.keys(data[0] || {}); //['name','age']
 
 	return (
 		<>
