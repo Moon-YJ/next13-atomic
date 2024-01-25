@@ -1,8 +1,11 @@
 import clsx from 'clsx';
+// 동등한 구조의 style을 덮어쓰기 할때 page컴포넌트의 style이 제일 높은 우선순위를 가져야 되기 때문에 page전용 style이 제일 및에 연결되어야함
+// 위의 로직은 Card컴포넌트에 연결되어 있는 style이 우선적용되고
+// 그 뒤에 페이지 스타일을 덮어쓰기
+import Card from '@/components/molecules/card/Card';
 import styles from './my-favorite.module.scss';
 import { useEffect, useState } from 'react';
 import { useRecipesByIds } from '@/hooks/useRecipe';
-import Card from '@/components/molecules/card/Card';
 
 export default function MyFavorite() {
 	/*
