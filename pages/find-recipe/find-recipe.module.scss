@@ -22,7 +22,7 @@
 
 @media screen and (max-width: $tabletB) {
 	.findRecipe {
-		.foodItem {
+		.foodItems {
 			width: 30%;
 		}
 	}
@@ -30,7 +30,7 @@
 
 @media screen and (max-width: $tabletS) {
 	.findRecipe {
-		.foodItem {
+		.foodItems {
 			width: 47%;
 		}
 	}
@@ -38,7 +38,7 @@
 
 @media screen and (max-width: $mobile) {
 	.findRecipe {
-		.foodItem {
+		.foodItems {
 			width: 100%;
 		}
 	}
