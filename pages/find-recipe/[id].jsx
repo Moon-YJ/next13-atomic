@@ -9,6 +9,17 @@ import List from '@/components/atoms/list/List';
 import Text from '@/components/atoms/text/Text';
 import { IoMdHeartEmpty } from 'react-icons/io';
 import { IoMdHeart } from 'react-icons/io';
+import { ClipLoader } from 'react-spinners';
+
+/*
+	- 다이나믹 라우터 "페이지 컴포넌트(특히 CSR방식으로 동작하는 컴포넌트)"에서 페이지 변경될때 props 오류 뜨는 이유와 해결방법
+		1. 원인
+			: 기본적으로 next는 라우터로 path명이 변경될때마다 언마운트되는 컴포넌트에서 CSR방식으로 가져온 데이터와 styleNode를 물리적으로 제거
+			: AnimatePresence에서 트리거 조건을 router의 path명 변경으로 설정했기 때문에 router path는 이미 변경됐지만 모션이 끝날때까지 해당 페이지 컴포넌트의 언마운트 시점을 지연시킴(이미 path는 변경돼서 CSR 데이터와 styleNode는 이미 제거됐는데 page 컴포넌트가 보여서 생기는 이슈)
+		2. 해결방법
+			: CSR방식으로 가져오는 데이터 자체를 컴포넌트 랜더링의 조건으로 설정
+			: ex. 만약 데이터가 없으면 로딩바를 대신 출력하고, 데이터가 있으면 데이터를 활용하는 컴포넌트를 출력
+*/
 
 export default function Detail() {
 	const router = useRouter();
@@ -68,7 +79,15 @@ export default function Detail() {
 
 	return (
 		<section className={clsx(styles.detail)}>
-			{isSuccess && (
+			{/* CSR 방식으로 가져오는 데이터가 없을때에는 로딩바를 대신 출력 */}
+			<ClipLoader
+				loading={!data}
+				cssOverride={{ position: 'absolute', top: 300, left: '50%', transform: 'translateX(-50%)' }}
+				color='var(--point)'
+				size={50}
+			/>
+			{/* data가 있을때에만 컨텐츠 출력 */}
+			{data && (
 				<>
 					<div className={clsx(styles.top)}>
 						<h1>{data.strMeal}</h1>
