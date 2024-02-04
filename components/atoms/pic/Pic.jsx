@@ -8,12 +8,12 @@ import { useState } from 'react';
 
 //npm i react-spinners
 
-export default function Pic({ imgSrc, imgTxt, url }) {
+export default function Pic({ imgSrc, imgTxt, url, className }) {
 	const [IsLoaded, setIsLoaded] = useState(false);
 	//const {point} = useThemeColor();
 
 	return (
-		<div className={clsx(styles.pic, imgTxt && styles.picTxt)}>
+		<div className={clsx(styles.pic, imgTxt && styles.picTxt, className)}>
 			<Image
 				src={imgSrc}
 				alt={imgSrc}
