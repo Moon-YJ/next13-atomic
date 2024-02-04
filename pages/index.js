@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import styles from './Home.module.scss';
 import axios from 'axios';
-import Layout from '@/components/template/layout/Layout';
-import Image from 'next/image';
+import Visual from '@/components/organisms/visual/Visual';
+//import Layout from '@/components/template/layout/Layout';
+//import Image from 'next/image';
 
 export default function Home({ meals, category }) {
 	console.log(meals);
@@ -15,7 +16,8 @@ export default function Home({ meals, category }) {
 			</Head>
 
 			<main className={styles.main}>
-				<h1>Main Page</h1>
+				<Visual dataArr={meals} />
+				{/* <h1>Main Page</h1>
 				<h2>{category}</h2>
 				{meals.map((data, idx) => {
 					if (idx > 5) return null;
@@ -25,7 +27,7 @@ export default function Home({ meals, category }) {
 							<h3>{data.strMeal}</h3>
 						</article>
 					);
-				})}
+				})} */}
 			</main>
 		</>
 	);
