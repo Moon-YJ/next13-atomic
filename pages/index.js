@@ -16,7 +16,7 @@ export default function Home({ meals, category }) {
 			</Head>
 
 			<main className={styles.main}>
-				<Visual dataArr={meals} />
+				<Visual dataArr={meals.slice(0, 5)} category={category} />
 				{/* <h1>Main Page</h1>
 				<h2>{category}</h2>
 				{meals.map((data, idx) => {
